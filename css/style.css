@@ -1,0 +1,602 @@
+/* RESET E VARIÁVEIS GLOBAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #FFD700;
+  --background: #111;
+  --dark-bg: #000;
+  --card-bg: #222;
+  --border: #333;
+  --text: #fff;
+  --transition: 0.3s ease;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* HEADER (mesmo para todas as páginas) */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px 25px;
+  background-color: var(--dark-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header img.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: auto;
+}
+
+.menu-hamburguer {
+  font-size: 28px;
+  color: var(--primary);
+  cursor: pointer;
+  z-index: 1001;
+  transition: var(--transition);
+}
+
+.menu-hamburguer:hover, .menu-hamburguer:focus {
+  color: #fff;
+}
+
+/* SIDEBAR (mesmo para todas) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 250px;
+  height: 100%;
+  background-color: var(--dark-bg);
+  transition: left var(--transition);
+  padding-top: 80px;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.search-container {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--primary);
+  color: var(--text);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#search-input:focus {
+  outline: 2px solid var(--primary);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  padding: 15px 30px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 18px;
+  transition: var(--transition);
+  display: block;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a:focus {
+  color: var(--primary);
+}
+
+/* SUBMENU DE CADASTRO (mesmo para todas) */
+.submenu {
+  padding: 20px;
+  border-top: 1px solid var(--border);
+  transition: opacity var(--transition);
+}
+
+.submenu h3 {
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.submenu form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submenu input, .submenu button {
+  padding: 10px;
+  border: 1px solid var(--primary);
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.submenu input:focus {
+  outline: 2px solid var(--primary);
+}
+
+.submenu button {
+  background: var(--primary);
+  color: var(--dark-bg);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.submenu button:hover {
+  background: #fff;
+}
+
+.submenu.hidden {
+  display: none;
+}
+
+/* SEÇÕES DO INDEX (catálogo) */
+.carros, #home, #contato {
+  padding: 60px 30px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carros h2, #home h1, #contato h2 {
+  margin-bottom: 25px;
+  color: var(--primary);
+}
+
+#home p, #contato p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#contato a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 20px;
+  transition: var(--transition);
+  display: block;
+  margin: 10px 0;
+}
+
+#contato a:hover {
+  color: #fff;
+}
+
+/* CARDS NO INDEX */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 150px;
+  background: var(--card-bg);
+  text-align: center;
+  transition: transform var(--transition);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:focus {
+  outline: 2px solid var(--primary);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.card h3, .card h4 {
+  color: var(--primary);
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.card:hover, .card:focus {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+}
+
+/* CONTAINER DE MODELOS NO INDEX */
+.modelos-container {
+  margin-top: 30px;
+  transition: opacity var(--transition);
+}
+
+.modelos-container.hidden {
+  display: none;
+}
+
+.modelos-container .cards {
+  justify-content: center;
+}
+
+.modelos-container .card {
+  width: 120px;
+}
+
+.modelos-container .card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.voltar-btn {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: var(--dark-bg);
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.voltar-btn:hover {
+  background: #fff;
+}
+
+/* ESTILOS PARA PÁGINAS DE CARROS (extras) */
+.pagina-carro {
+  padding: 60px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pagina-carro h1 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.pagina-carro .descricao {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border);
+}
+
+.pagina-carro .descricao p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.pagina-carro .descricao strong {
+  color: var(--primary);
+}
+
+/* GALERIA/SLIDER NAS PÁGINAS DE CARROS */
+.galeria {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 20px 0;
+  background: var(--dark-bg);
+  border: 2px solid var(--primary);
+}
+
+.galeria-slides {
+  display: flex;
+  transition: transform var(--transition);
+}
+
+.galeria-slide {
+  min-width: 100%;
+  display: none;
+}
+
+.galeria-slide.active {
+  display: block;
+}
+
+.galeria-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.galeria-prev, .galeria-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--primary);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.galeria-prev:hover, .galeria-next:hover {
+  background: rgba(255, 215, 0, 0.8);
+}
+
+.galeria-prev { left: 10px; }
+.galeria-next { right: 10px; }
+
+.galeria-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.galeria-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--border);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.galeria-dot.active {
+  background: var(--primary);
+}
+
+/* MODAL E SLIDER (COMPLETO COM BOTÕES POSICIONADOS NAS LATERAIS) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none !important;
+}
+
+.modal:not(.hidden) {
+  display: flex !important;
+}
+
+.modal-content {
+  background: var(--dark-bg);
+  border: 2px solid var(--primary);
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+#modal-titulo {
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  color: var(--primary);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 2001;
+}
+
+.close:hover {
+  color: #fff;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 60vh;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  transition: opacity var(--transition);
+  opacity: 0;
+}
+
+.slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  pointer-events: none; /* Permite cliques passarem para os botões */
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--primary);
+  border: none;
+  font-size: 2.5rem; /* Maior para visibilidade */
+  cursor: pointer;
+  padding: 15px 10px; /* Padding para área clicável maior */
+  border-radius: 50%;
+  transition: var(--transition);
+  z-index: 10; /* Alto para ficar na frente da imagem */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(255, 215, 0, 0.8);
+  color: var(--dark-bg);
+  transform: translateY(-50%) scale(1.1); /* Efeito hover suave */
+}
+
+.prev {
+  left: 10px; /* Posição à esquerda */
+}
+
+.next {
+  right: 10px; /* Posição à direita */
+}
+
+/* RESPONSIVO PARA BOTÕES (MAIORES EM MOBILE) */
+@media (max-width: 768px) {
+  .prev, .next {
+    font-size: 2rem;
+    width: 45px;
+    height: 45px;
+    padding: 10px 8px;
+  }
+
+  .slider {
+    max-height: 50vh; /* Menor em mobile */
+  }
+
+  .slide img {
+    max-height: 50vh;
+  }
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  color: var(--text);
+  background: var(--dark-bg);
+  margin-top: 30px;
+  border-top: 1px solid var(--border);
+}
+
+/* RESPONSIVO GERAL (EXPANDIDO) */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+  }
+  
+  header img.logo {
+    height: 60px;
+    position: static;
+    transform: none;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .menu-hamburguer {
+    font-size: 24px;
+  }
+  
+  .sidebar {
+    width: 200px;
+    left: -200px;
+  }
+  
+  .sidebar.active {
+    left: 0;
+  }
+  
+  .carros, #home, #contato {
+    padding: 40px 15px;
+  }
+  
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .modelos-container .card {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carros, #home, #contato {
+    padding: 30px 10px;
+  }
+  
+  .card {
+    padding: 10px;
+  }
+  
+  .card h3, .card h4 {
+    font-size: 14px;
+  }
+}
