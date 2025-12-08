@@ -101,10 +101,6 @@ img.onerror = function() {
   this.parentElement.innerHTML = '<div>Imagem não disponível</div>';
 };
 
-🖼️ Demonstração
-
-(Adicione aqui um GIF ou screenshot do projeto)
-
 📌 Exemplo de comando:  
 git clone, abrir index.html — pronto.
 
